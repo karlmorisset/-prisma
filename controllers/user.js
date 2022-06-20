@@ -23,6 +23,16 @@ const get = async (req, res) => {
     const data = await user.findUnique({
       where: {
         id: parseInt(id)
+      },
+      select: {
+        id: true,
+        email: true,
+        posts: {
+          select: {
+            id: true,
+            title: true
+          }
+        }
       }
     })
 
