@@ -12,7 +12,9 @@ app.get('/', async (req, res, next) => {
   res.send({ message: 'Awesome it works 🐻' });
 });
 
-app.use('/api', require('./routes/api.route'));
+app.use('/api/users', require('./routes/api.user.route'));
+app.use('/api/posts', require('./routes/api.post.route'));
+
 
 app.use((req, res, next) => {
   next(createError.NotFound());
